@@ -1,8 +1,8 @@
 {
   "required_api_version": "^2.0.0",
-  "name": "Tmux attach",
+  "name": "Tmux",
   "description": "Open your existing tmux sessions",
-  "developer_name": "gurkan.in",
+  "developer_name": "Adrian Haasler García",
   "icon": "images/tmux.png",
   "options": {
     "query_debounce": 0.1

@@ -1,5 +1,4 @@
-// DEPRECATED: Since I am not using ulauncher anymore, this extension doesn't support the new API.
-And I have sadly no time to dig into it. Forks are welcome.
+# Ulauncher Tmux extension
 
 Another hacky extension for the [ulauncher](https://ulauncher.io/), this time for Tmux.
 
@@ -17,3 +16,9 @@ For example, to be able to use this with KDE Konsole, set following parameters u
 
 
 ![extension screenshot](https://i.imgur.com/U0nUGlZ.png)
+
+## License
+
+[MIT](LICENSE)
+
+Copyright for portions of project ulauncher-tmux are held by user seqizz on github.com (@seqizz), 2021 as part of project ulauncher-tmux-attach. All other copyright for project ulauncher-tmux are held by Adrian Haasler García, 2021.
