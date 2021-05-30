@@ -26,14 +26,16 @@ class KeywordQueryEventListener(EventListener):
         if output.splitlines()[0] != "none":
             for line in output.splitlines():
                 if not search or search.lower() in line.split(' ')[0].lower():
-                    items.append(
-                        ExtensionResultItem(
-                            icon='images/tmux.png',
-                            name='Attach session %s' % line.split(' ')[0],
-                            description=line,
-                            on_enter=RunScriptAction(terminal_binary + ' ' + console_parameters_attach % line.split(' ')[0], None)
-                        )
+                    item = ExtensionResultItem(
+                        icon='images/tmux.png',
+                        name='Attach session %s' % line.split(' ')[0],
+                        description=line,
+                        on_enter=RunScriptAction(terminal_binary + ' ' + console_parameters_attach % line.split(' ')[0], None)
                     )
+                    if search == line.split(':')[0]:
+                        items.insert(0, item)
+                    else:
+                        items.append(item)
         else:
             items.append(
                 ExtensionResultItem(
