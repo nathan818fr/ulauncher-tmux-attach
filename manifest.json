@@ -16,6 +16,13 @@
       "default_value": "tmux"
     },
     {
+      "id": "session_description",
+      "type": "input",
+      "name": "Description format for session",
+      "description": "See `man --pager='less -p ^FORMATS' tmux` for format options. Leave empty for no description",
+      "default_value": "Attach #S (#{session_windows} windows)"
+    },
+    {
       "id": "terminal_binary",
       "type": "input",
       "name": "Terminal emulator to run",
