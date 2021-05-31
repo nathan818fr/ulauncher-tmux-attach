@@ -31,8 +31,12 @@ class KeywordQueryEventListener(EventListener):
         terminal_binary = extension.preferences['terminal_binary']
         console_parameters_attach = extension.preferences['console_parameters_attach']
         console_parameters_new = extension.preferences['console_parameters_new']
+        default_new_session_name = extension.preferences['new_session_name']
+        new_session_name = default_new_session_name
+        current_new_session_index = 1
         output = pipe.read()
-        if output.splitlines()[0] != "none":
+        lines = output.splitlines()
+        if lines and lines[0] != "none":
             for line in output.splitlines():
                 if not search or search.lower() in line.split(separator)[0].lower():
                     item = ExtensionResultItem(
@@ -45,15 +49,21 @@ class KeywordQueryEventListener(EventListener):
                         items.insert(0, item)
                     else:
                         items.append(item)
-        else:
-            items.append(
-                ExtensionResultItem(
-                    icon='images/tmux.png',
-                    name='Create a new tmux session',
-                    description='No active tmux sessions found',
-                    on_enter=RunScriptAction(terminal_binary + ' ' + console_parameters_new, None)
-                )
+                if new_session_name == line.split(separator)[0]:
+                    current_new_session_index += 1
+                    new_session_name = "%s-%d" % (default_new_session_name, current_new_session_index)
+
+        if search and (not items or items[0]._name != search):
+            new_session_name = search
+
+        items.append(
+            ExtensionResultItem(
+                icon='images/tmux.png',
+                name=new_session_name,
+                description='Create %s' % new_session_name,
+                on_enter=RunScriptAction(terminal_binary + ' ' + (console_parameters_new % new_session_name), None)
             )
+        )
 
         return RenderResultListAction(items)
 
