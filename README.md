@@ -15,7 +15,7 @@ For example, to be able to use this with KDE Konsole, set following parameters u
 - New session parameters: --new-tab -e 'tmux'
 
 
-![extension screenshot](https://i.imgur.com/U0nUGlZ.png)
+![extension screenshot](screenshot.png)
 
 ## License
 
