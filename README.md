@@ -12,7 +12,7 @@ For example, to be able to use this with KDE Konsole, set following parameters u
 
 - Terminal: konsole
 - Attach parameters: --new-tab -e 'tmux att -t %s'
-- New session parameters: --new-tab -e 'tmux'
+- New session parameters: --new-tab -e 'tmux new -s %s'
 
 
 ![extension screenshot](screenshot.png)
