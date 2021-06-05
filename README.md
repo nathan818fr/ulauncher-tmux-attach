@@ -8,12 +8,12 @@ If no sessions found, you can create new one.
 
 This extension uses gnome-terminal by default. If your terminal emulator is different, you should check and edit the parameters in settings.
 
-For example, to be able to use this with KDE Konsole, set following parameters under settings:
+For example:
 
-- Terminal: konsole
-- Attach parameters: --new-tab -e 'tmux att -t %s'
-- New session parameters: --new-tab -e 'tmux new -s %s'
-
+| Terminal  | Attach parameters             | New session parameters            |
+| --------- | ----------------------------- | --------------------------------- |
+| `kitty`   | `tmux a -t '%s'`              | `tmux new -s '%s'`                |
+| `konsole` | `--new-tab -e 'tmux a -t %s'` | `--new-tab -e 'tmux new -s %s'`   |
 
 ![extension screenshot](screenshot.png)
 
