@@ -1,24 +1,45 @@
-# Ulauncher Tmux extension
+# Ulauncher Tmux Attach
 
-Another hacky extension for the [ulauncher](https://ulauncher.io/), this time for Tmux.
+Ulauncher Tmux Attach is an extension for [Ulauncher](https://ulauncher.io/)
+that allows you to easily attach to or create new [tmux](https://github.com/tmux/tmux/wiki)
+sessions.
 
-It searches your open sessions and attaches to them.
+![Extension preview](./screenshot.png?raw=true)
 
-If no sessions found, you can create new one.
+## Installation
 
-This extension uses gnome-terminal by default. If your terminal emulator is different, you should check and edit the parameters in settings.
+1. Open Ulauncher
+2. Open the Extension settings
+3. Click on the "Add extension" button
+4. Paste the following URL:
+   ```
+   https://github.com/nathan818fr/ulauncher-tmux-attach
+   ```
+5. Click on the "Add" button
 
-For example:
+## Usage
 
-| Terminal  | Attach parameters             | New session parameters            |
-| --------- | ----------------------------- | --------------------------------- |
-| `kitty`   | `tmux a -t '%s'`              | `tmux new -s '%s'`                |
-| `konsole` | `--new-tab -e 'tmux a -t %s'` | `--new-tab -e 'tmux new -s %s'`   |
+1. Open Ulauncher
+2. Type `tmux` followed by a space
+3. Select the desired action from the list of available options
 
-![extension screenshot](screenshot.png)
+## Terminal Configuration
+
+This extension uses gnome-terminal by default.
+If you want to use another terminal, you can change it in the extension
+settings.
+
+| Terminal                   | Command (new tab)                               | Command (new window)   |
+| -------------------------- | ----------------------------------------------- | ---------------------- |
+| GNOME Terminal _(default)_ | `gnome-terminal --tab -e %s`                    | `gnome-terminal -e %s` |
+| Konsole                    | `konsole --new-tab -e %s`                       | `konsole -e %s`        |
+| Tilix                      | `tilix -a app-new-session --focus-window -e %s` | `tilix -e %s`          |
+| Terminator                 | -                                               | `terminator -e %s`     |
+
+Note: In the commands, `%s` will be replaced by a POSIX-escaped shell argument,
+so don't add quotes around it!
 
 ## License
 
-[MIT](LICENSE)
-
-Copyright for portions of project ulauncher-tmux are held by user seqizz on github.com (@seqizz), 2021 as part of project ulauncher-tmux-attach. All other copyright for project ulauncher-tmux are held by Adrian Haasler García, 2021.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE)
+file for details.

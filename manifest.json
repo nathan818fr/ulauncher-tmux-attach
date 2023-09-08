@@ -1,8 +1,8 @@
 {
   "required_api_version": "^2.0.0",
-  "name": "Tmux",
-  "description": "Open your existing tmux sessions",
-  "developer_name": "Adrian Haasler García",
+  "name": "Tmux Attach",
+  "description": "Open and create tmux sessions",
+  "developer_name": "Nathan Poirier",
   "icon": "images/tmux.png",
   "options": {
     "query_debounce": 0.1
@@ -23,32 +23,28 @@
       "default_value": "Attach #S (#{session_windows} windows)"
     },
     {
-      "id": "terminal_binary",
+      "id": "terminal_cmd",
       "type": "input",
-      "name": "Terminal emulator to run",
-      "default_value": "gnome-terminal"
+      "name": "Command to start the terminal and execute a command inside",
+      "default_value": "gnome-terminal --tab -e %s"
     },
     {
-      "id": "console_parameters_attach",
+      "id": "tmux_attach_cmd",
       "type": "input",
-      "name": "Parameters to append to terminal command if tmux session found",
-      "description": "Use %s for session name variable. Avoid or escape double quotes.",
-      "default_value": "--tab -e 'tmux attach -t %s'"
+      "name": "Command to attach a tmux session",
+      "default_value": "tmux attach -t %s"
     },
     {
-      "id": "console_parameters_new",
+      "id": "tmux_new_cmd",
       "type": "input",
-      "name": "Parameters to append to terminal command for new tmux session",
-      "description": "Avoid or escape double quotes.",
-      "default_value": "--tab -e 'tmux new -s %s'"
+      "name": "Command to create a tmux session",
+      "default_value": "tmux new -s %s"
     },
     {
       "id": "new_session_name",
       "type": "input",
       "name": "Default new session name",
-      "description": "Avoid or escape double quotes. Will have a number if it already exists.",
       "default_value": "new"
     }
   ]
 }
-
